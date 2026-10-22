@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Informes de tokens Uniandes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Source+Sans+3:wght@400..700&display=swap">
+<style>
+  :root{
+    --bg:#FFFFFF; --surface:#F5F5F2; --line:#E2E1DB; --ink:#1F1F1C; --muted:#5E5D58;
+    --mark:#FFE41E; --link:#2442B2;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif}
+  main{max-width:880px;margin:0 auto;padding:72px 16px 96px}
+  .eyebrow{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  h1{font:600 clamp(32px,5vw,46px)/1.12 "Source Serif 4",Georgia,serif;margin:0 0 16px;text-wrap:balance}
+  h1 mark{background:linear-gradient(transparent 62%,var(--mark) 62%);color:inherit;padding:0 2px}
+  .lede{color:var(--muted);max-width:60ch;margin:0 0 48px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  a.card{display:flex;flex-direction:column;gap:10px;padding:28px;border:1px solid var(--line);border-radius:10px;
+    background:var(--surface);color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
+  a.card:hover{border-color:var(--ink);transform:translateY(-2px)}
+  a.card:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+  .num{font:600 14px "Source Sans 3",sans-serif;color:var(--muted)}
+  .card h2{font:600 24px/1.2 "Source Serif 4",Georgia,serif;margin:0}
+  .card p{margin:0;color:var(--muted);font-size:16px}
+  .go{margin-top:auto;padding-top:12px;color:var(--link);font-weight:600}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">Universidad de los Andes · Sistema de diseño</p>
+  <h1>Informes de <mark>tokens</mark> del Figma de Uniandes</h1>
+  <p class="lede">Dos informes complementarios: la auditoría resume el estado general de la tokenización y sus hallazgos; el levantamiento detalla, componente por componente, qué valores usan tokens y cuáles están quemados.</p>
+
+  <div class="cards">
+    <a class="card" href="auditoria-tokens.html">
+      <span class="num">01 · Auditoría</span>
+      <h2>Auditoría de tokens</h2>
+      <p>Cómo está tokenizado cada uno de los 57 componentes, adaptación por dispositivo, estados y los hallazgos prioritarios antes del Sprint 2.</p>
+      <span class="go">Abrir informe →</span>
+    </a>
+    <a class="card" href="levantamiento-componentes.html">
+      <span class="num">02 · Levantamiento</span>
+      <h2>Levantamiento por componente</h2>
+      <p>Ficha de cada componente: tokenización por tipo de propiedad, valores quemados, grupos de valores similares y tokens existentes que usa.</p>
+      <span class="go">Abrir informe →</span>
+    </a>
+  </div>
+
+  <footer>Preparado por esinergia.</footer>
+</main>
+</body>
+</html>
