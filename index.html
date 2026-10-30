@@ -20,7 +20,7 @@
   h1{font:600 clamp(32px,5vw,46px)/1.12 "Source Serif 4",Georgia,serif;margin:0 0 16px;text-wrap:balance}
   h1 mark{background:linear-gradient(transparent 62%,var(--mark) 62%);color:inherit;padding:0 2px}
   .lede{color:var(--muted);max-width:60ch;margin:0 0 48px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
   a.card{display:flex;flex-direction:column;gap:10px;padding:28px;border:1px solid var(--line);border-radius:10px;
     background:var(--surface);color:inherit;text-decoration:none;transition:border-color .15s,transform .15s}
   a.card:hover{border-color:var(--ink);transform:translateY(-2px)}
@@ -29,29 +29,67 @@
   .card h2{font:600 24px/1.2 "Source Serif 4",Georgia,serif;margin:0}
   .card p{margin:0;color:var(--muted);font-size:16px}
   .go{margin-top:auto;padding-top:12px;color:var(--link);font-weight:600}
+  .notes{margin-top:56px}
+  .notes h2{font:600 26px/1.2 "Source Serif 4",Georgia,serif;margin:0 0 16px}
+  .note+.note{margin-top:16px}
+  .note{padding:24px 28px;border:1px solid var(--line);border-radius:10px}
+  .note p{margin:0 0 12px}
+  .note-meta{font-size:14px;color:var(--muted)}
+  .tag{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--mark);color:var(--ink);font-weight:600;font-size:12px;margin-right:4px}
+  .note ul{margin:0 0 12px;padding-left:20px}
+  .note li{margin-bottom:8px;font-size:16px}
+  .note-foot{font-size:14px;color:var(--muted);margin:0!important}
   footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 <main>
   <p class="eyebrow">Universidad de los Andes · Sistema de diseño</p>
-  <h1>Informes de <mark>tokens</mark> del Figma de Uniandes</h1>
-  <p class="lede">Dos informes complementarios: la auditoría resume el estado general de la tokenización y sus hallazgos; el levantamiento detalla, componente por componente, qué valores usan tokens y cuáles están quemados.</p>
+  <h1>Informes de <mark>tokens</mark> de Uniandes</h1>
+  <p class="lede">Tres informes de la auditoría de tokenización. El levantamiento mide el código de Storybook, la auditoría revisa el Figma y la comparativa cruza los dos, componente por componente, con lo que falta para definir los tokens.</p>
 
   <div class="cards">
-    <a class="card" href="auditoria-tokens.html">
-      <span class="num">01 · Auditoría</span>
-      <h2>Auditoría de tokens</h2>
-      <p>Cómo está tokenizado cada uno de los 57 componentes, adaptación por dispositivo, estados y los hallazgos prioritarios antes del Sprint 2.</p>
+    <a class="card" href="levantamiento-componentes.html">
+      <span class="num">01 · Storybook</span>
+      <h2>Levantamiento de tokens</h2>
+      <p>Ficha de cada componente en código: tokenización por tipo de propiedad, valores quemados, valores similares, dependencias y orden sugerido de tokenización.</p>
       <span class="go">Abrir informe →</span>
     </a>
-    <a class="card" href="levantamiento-componentes.html">
-      <span class="num">02 · Levantamiento</span>
-      <h2>Levantamiento por componente</h2>
-      <p>Ficha de cada componente: tokenización por tipo de propiedad, valores quemados, grupos de valores similares y tokens existentes que usa.</p>
+    <a class="card" href="auditoria-tokens.html">
+      <span class="num">02 · Figma</span>
+      <h2>Auditoría de tokens</h2>
+      <p>Fundamentos, inventario de variables y estilos, ficha de cada componente, comportamiento por dispositivo, estados y los hallazgos priorizados, en los 8 escenarios de la historia de usuario.</p>
+      <span class="go">Abrir informe →</span>
+    </a>
+    <a class="card" href="comparativa-figma-storybook.html">
+      <span class="num">03 · Cruce</span>
+      <h2>Comparativa y lo que falta</h2>
+      <p>Figma y Storybook token por token y en columnas para los 57 componentes, con las recomendaciones generales por categoría, con la ficha completa de cada uno (propiedades, valores y tokens, dependencias), lo que falta en cada uno para quedar al 100 % e igual en las dos plataformas, lo acordado con Uniandes y el plan de homologación, ejecución y revisión.</p>
       <span class="go">Abrir informe →</span>
     </a>
   </div>
+
+  <section class="notes" aria-labelledby="notas-version">
+    <h2 id="notas-version">Notas de versión</h2>
+    <article class="note">
+      <p class="note-meta"><time datetime="2026-10-30">30 de octubre de 2026</time> · <span class="tag">Nuevo</span> comparativa-figma-storybook.html</p>
+      <p>Se agrega la comparativa entre Figma y Storybook para los 57 componentes, con lo que falta en cada uno para quedar tokenizado al 100 % e igual en las dos plataformas.</p>
+      <p class="note-foot">Sin cambios en el contenido del levantamiento ni de la auditoría.</p>
+    </article>
+    <article class="note">
+      <p class="note-meta"><time datetime="2026-10-27">27 de octubre de 2026</time> · <span class="tag">Actualizado</span> auditoria-tokens.html y docs/auditoria-tokens.md</p>
+      <p>La auditoría incorpora el archivo de Figma <b>Building blocks</b>, que compartió Uniandes. Con él quedan auditados en Figma los 57 componentes del alcance (antes eran 43).</p>
+      <ul>
+        <li><b>Componentes:</b> 14 componentes se leyeron en Building blocks (13 componentes y el video de Imagen/Video). Uniandes confirmó que Select es el mismo componente que Input Dropdown. Solo Header y Heros - Events quedan sin historia en Storybook.</li>
+        <li><b>Figma frente a Storybook:</b> el porcentaje y el estado de Storybook ahora se toman tal cual del levantamiento. Resultado: 28 de 56 componentes no están tokenizados igual en las dos plataformas (antes 22 de 42).</li>
+        <li><b>Dispositivos y estados:</b> 51 de 57 componentes tienen variantes por dispositivo, 489 textos usan el estilo de otro dispositivo (antes 256) y 15 componentes interactivos no tienen estado de foco (antes 11).</li>
+        <li><b>Hallazgos:</b> pasan de 60 a 63 (17 alta, 31 media, 15 baja). Son nuevos: Keypoint duplicado en Building blocks, Paragraph y Spacer de otra publicación, y marcas de estado distintas entre los dos archivos. Se actualizaron otros 19 con los datos nuevos.</li>
+        <li><b>Radio:</b> 15 valores distintos en componentes (antes 14); Building blocks agrega 50 px en las fechas de Calendar.</li>
+        <li><b>Nombres:</b> los componentes usan los nombres del levantamiento (por ejemplo, Cards - News en lugar de Card News, Heros - Events en lugar de Hero Event).</li>
+      </ul>
+      <p class="note-foot">Sin cambios en el levantamiento por componente ni en el diseño de las páginas.</p>
+    </article>
+  </section>
 
   <footer>Preparado por esinergia.</footer>
 </main>
